@@ -1,14 +1,96 @@
-# MarkovLab 2.5D – Modelo + Trellis Viterbi
+# MarkovLab Frontend
 
-Actualización del frontend de MarkovLab. Incluye dos pestañas: Modelo y Ejecución. La vista Ejecución visualiza un nodo por estado y nucleótido, transiciones posibles y camino óptimo final. Utiliza la respuesta real del endpoint POST /api/hmm/viterbi.
+Aplicación web interactiva desarrollada para visualizar modelos ocultos de Markov (HMM) y comprender el algoritmo de Viterbi aplicado a secuencias de ADN.
 
-## Instalación sobre tu proyecto actual
+El proyecto tiene fines educativos y permite experimentar con diferentes probabilidades para observar cómo influyen en la determinación del camino de estados ocultos más probable.
 
-1. Copiar la carpeta `src` de este ZIP sobre la carpeta `src` existente, reemplazando los archivos correspondientes (conservá el resto de archivos de tu proyecto).
-2. Copiar `vite.config.ts` a la raíz (el proxy ya apunta a https://localhost:7259).
-3. Desde la carpeta que contiene package.json, ejecutar `npm.cmd install @xyflow/react` si falta, luego `npm.cmd run dev`.
-4. Mantener la API .NET ejecutándose en https://localhost:7259.
+## Funcionalidades
 
-No hace falta cambiar el backend.
+- Visualización gráfica de modelos ocultos de Markov.
+- Representación de estados y probabilidades de transición.
+- Configuración interactiva de probabilidades iniciales.
+- Modificación de probabilidades de transición y emisión.
+- Ingreso de secuencias de ADN.
+- Ejecución del algoritmo de Viterbi.
+- Visualización del camino más probable mediante un diagrama Trellis.
+- Visualización de la probabilidad final del camino obtenido.
 
-Nota: se entregan archivos de la app React, no node_modules ni package.json; conservar el package.json que ya generaste con Vite.
+## Modelo de ejemplo
+
+La aplicación utiliza un HMM con dos estados ocultos:
+
+- Promotor (P): representa una posible región promotora del ADN.
+- Background (B): representa el ADN de fondo.
+
+Cada estado tiene probabilidades de transición y emisión configurables.
+
+El modelo constituye una simplificación didáctica y no representa un predictor biológico validado de regiones promotoras.
+
+## Tecnologías
+
+- React
+- TypeScript
+- React Flow
+- Vite
+- CSS
+
+## Requisitos
+
+- Node.js
+- npm
+- MarkovLab Backend API
+
+## Instalación
+
+Clonar el repositorio:
+
+```bash
+git clone https://github.com/RodrigoLago/MarkovLab-Frontend.git
+```
+
+Acceder al directorio:
+
+```bash
+cd MarkovLab-Frontend
+```
+
+Instalar las dependencias:
+
+```bash
+npm install
+```
+
+Iniciar el servidor de desarrollo:
+
+```bash
+npm run dev
+```
+
+La aplicación estará disponible en la dirección local indicada por Vite.
+
+## Conexión con el backend
+
+El frontend consume una API REST desarrollada en ASP.NET Core.
+
+Endpoint:
+
+POST /api/hmm/viterbi
+
+Durante el desarrollo, Vite utiliza un proxy configurado en vite.config.ts para comunicarse con:
+
+https://localhost:7259
+
+La API debe encontrarse en ejecución para poder utilizar el algoritmo de Viterbi.
+
+## Proyectos relacionados
+
+- Librería NuGet: https://github.com/RodrigoLago/MarkovLab
+- Backend: https://github.com/RodrigoLago/MarkovLab-Backend
+
+## Autor
+
+Lago Rodrigo Iván
+
+## Licencia
+
+MIT
